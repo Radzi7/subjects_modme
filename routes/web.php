@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::get('subjects/{subject}', [SubjectController::class, 'show'])->name('subj
 Route::get('subjects/{subject}/edit', [SubjectController::class, 'edit'])->name('subjects.edit');
 Route::put('subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
 Route::delete('subjects/{subject}', [SubjectController::class, 'delete'])->name('subjects.delete');
+
+Route::resource('materials', MaterialController::class);

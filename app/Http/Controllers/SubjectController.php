@@ -19,7 +19,7 @@ class SubjectController extends Controller
         return 'Store';
     }
     public function show ($subject){ 
-        return Subject::query()->findOrFail($subject);
+        dd( Subject::query()->with('materials')->findOrFail($subject));
         
     }
     public function edit (){

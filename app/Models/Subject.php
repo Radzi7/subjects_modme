@@ -10,7 +10,17 @@ class Subject extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name','active'
     ];
+
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
+    public function materials()
+    {
+        return $this->hasMany(Material::class);
+    }
 }
+
 
