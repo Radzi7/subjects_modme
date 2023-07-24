@@ -20,11 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('subjects', [SubjectController::class, 'index'])->name('subjects');
-Route::get('subjects/create', [SubjectController::class, 'create'])->name('subjects.create');
-Route::post('subjects', [SubjectController::class, 'store'])->name('subjects.store');
 Route::get('subjects/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
-Route::get('subjects/{subject}/edit', [SubjectController::class, 'edit'])->name('subjects.edit');
-Route::put('subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
-Route::delete('subjects/{subject}', [SubjectController::class, 'delete'])->name('subjects.delete');
 
-Route::resource('materials', MaterialController::class);
+Route::get('materials', [MaterialController::class, 'index'])->name('materials');
+Route::get('materials/{material}', [MaterialController::class, 'show'])->name('materials.show');

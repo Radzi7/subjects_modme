@@ -18,10 +18,10 @@ return new class extends Migration
             $table->foreignId('subject_id')->constrained();
 
             $table->string('title');
-            $table->text('content_uz');
-            $table->text('content_ru');
-            $table->text('content_en');
-            $table->text('content_id');
+            $table->text('content_uz')->nullable();
+            $table->text('content_ru')->nullable();
+            $table->text('content_en')->nullable();
+            $table->text('content_id')->nullable();
 
             $table->timestamps();
         });

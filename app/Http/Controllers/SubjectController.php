@@ -11,24 +11,28 @@ class SubjectController extends Controller
     {
         return Subject::all();
     }
-    public function create (){
-        
-        return 'Create';;
-    }
     public function store (Request $request){
-        return 'Store';
+        $items = new Subject();
+        $items->name = $request->name;
+        $items->active = $request->active;
+        
+
+        $items->save();
+        return ['Successfully added', Subject::all()];
     }
     public function show ($subject){ 
-        dd( Subject::query()->with('materials')->findOrFail($subject));
-        
+        return Subject::query()->with('materials')->findOrFail($subject);
     }
-    public function edit (){
-        return 'Edit';
+    public function update (Request $request){
+        $items  = Subject::findOrFail($request->id);
+        $items->name = $request->name;
+        $items->active = $request->active;
+
+        $items->update();
+        return ['Successfully updated', Subject::findOrFail($request->id)];
     }
-    public function update (){
-        return 'Update';
-    }
-    public function delete (){
-         return 'Delete';
+    public function delete (Request $request){
+        $items  = Subject::findOrFail($request->id)->delete();
+        return 'Successfully deleted';
     }
 }
