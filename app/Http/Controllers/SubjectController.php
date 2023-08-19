@@ -9,6 +9,7 @@ class SubjectController extends Controller
 {
     public function index ()
     {
+        // $this->authorize('view', auth()->user());
         return Subject::all();
     }
     public function store (Request $request){
